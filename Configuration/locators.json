@@ -1,0 +1,13 @@
+{
+    "LoginPage": {
+        "usernameInput": "//input[@placeholder='Username']",
+        "passwordInput": "//input[@placeholder='Password']",
+        "loginButton": "//button[normalize-space()='Login']",
+        "url": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+    },
+    "HomePage": {
+        "welcomeMessage": "h1#welcomeMessage"
+
+    }
+  }
+  
