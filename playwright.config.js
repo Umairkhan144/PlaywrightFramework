@@ -1,5 +1,6 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
+const locators = require('./Configuration/locators.json');
 
 /**
  * Read environment variables from file.
@@ -11,6 +12,10 @@ const { defineConfig, devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
+
+  globalSetup: require.resolve('./global-setup.js'),
+  // globalTeardown: require.resolve('./global-teardown.js'),
+
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -28,6 +33,8 @@ module.exports = defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    baseURL: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
+    storageState: 'storageState.json',
     trace: 'on-first-retry',
   },
 

@@ -1,13 +1,11 @@
-const {test, expect} = require('@playwright/test')
-const LoginPage = require('../Pages/LoginPage.js')
-// const setup = require('../Configuration/setup.js')
+// Test.spec.js
+const { test, expect } = require('@playwright/test');
+const LoginPage = require('../Pages/LoginPage.js');
 
-// test.use({...setup});
-
-test('First test',async ({page})=>{
-
-    let lp = new LoginPage(page);
-    await lp.login("admin","admin123");
-
-    await page.waitForTimeout(5000); //pausing code
-})
+test('test', async ({ page }) => {
+    const lp = new LoginPage(page);
+    await page.goto('/');
+    await lp.loginMethod('admin','admin123')
+    await page.waitForTimeout(5000)
+    // Your test code continues...
+  });

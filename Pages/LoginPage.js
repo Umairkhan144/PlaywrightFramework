@@ -1,17 +1,18 @@
-const BasePage = require('./BasePage');
+const { expect } = require('@playwright/test');
 const locators = require('../Configuration/locators.json');
 
-class LoginPage extends BasePage {
+class LoginPage {
 
-    constructor(page) {
-        super(page)
-      }
+  constructor(page)
+  {
+    this.page = page;
+  }
 
-  async login(username, password) {
-    await this.open(locators.LoginPage.url)
-    await this.type(locators.LoginPage.usernameInput, username);
-    await this.type(locators.LoginPage.passwordInput, password);
-    await this.click(locators.LoginPage.loginButton);
+  async loginMethod(username, password) {
+    await this.page.waitForLoadState('load');
+    await this.page.locator(locators.LoginPage.usernameInput).fill(username)
+    await this.page.locator(locators.LoginPage.passwordInput).fill(password)
+    await this.page.locator(locators.LoginPage.loginButton).click()
   }
 
   // Add page-specific functions as needed
