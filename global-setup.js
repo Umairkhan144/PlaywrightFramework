@@ -6,7 +6,7 @@ async function globalSetup(config) {
   const browser = await chromium.launch();
   const page = await browser.newPage();
   
-  await page.goto(baseURL);
+  await page.goto(baseURL ,{ timeout: 60000 });
   await page.context().storageState({ path: storageState });
   // await browser.close();
 }

@@ -1,5 +1,5 @@
 const { expect } = require('@playwright/test');
-const locators = require('../Configuration/locators.json');
+const locators = require('../Utils/locators.json');
 
 class LoginPage {
 

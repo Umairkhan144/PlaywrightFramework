@@ -1,6 +1,6 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
-const locators = require('./Configuration/locators.json');
+const locators = require('./Utils/locators.json');
 
 /**
  * Read environment variables from file.
