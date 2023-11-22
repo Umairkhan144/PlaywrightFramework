@@ -6,7 +6,7 @@
         "url": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
     },
     "HomePage": {
-        "welcomeMessage": "h1#welcomeMessage"
+        "PIMOption": "//span[normalize-space()='PIM']"
 
     }
   }

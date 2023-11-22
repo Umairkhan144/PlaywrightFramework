@@ -1,7 +1,7 @@
 // Test.spec.js
 const { test, expect } = require('@playwright/test');
 const LoginPage = require('../Pages/LoginPage.js');
-const ExcelUtils = require('../Utils/ExcelUtils');
+const ExcelUtils = require('../Utils/ExcelUtils.js');
 
 // There are two approches to test data driven:
 // 1. With Loop but it will show only one test run in report.
@@ -20,13 +20,13 @@ test('Login Scenario', async ({ page }) => {
     for (let i = 2; i <= excelUtils.getRowCount(); i++) {
 
         // Access data from the Excel file
-        const username = excelUtils.getCellValue(i, 'Username');
-        const password = excelUtils.getCellValue(i, 'Password');
-        let exp = excelUtils.getCellValue(i, 'Expected Result');
+        const username = excelUtils.getCellValue(i, 'A');
+        const password = excelUtils.getCellValue(i, 'B');
+        let exp = excelUtils.getCellValue(i, 'C');
 
         await lp.loginMethod(username,password)
 
-        console.log("Test Case # "+i+" Username : "+username+" Password : "+ password + "Expected Result : " + exp)
+        console.log("Test Case # "+i+" Username : "+username+" Password : "+ password + " Expected Result : " + exp)
 
         if(exp == "Fail"){
             await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
@@ -70,8 +70,8 @@ test('Login Scenario', async ({ page }) => {
 //     await page.goto('/');
 
 //     // Access data from the Excel file
-//     const username = excelUtils.getCellValue(3, 'A');
-//     const password = excelUtils.getCellValue(3, 'B');
+//     const username = excelUtils.getCellValue(3, 'Username');
+//     const password = excelUtils.getCellValue(3, 'Password');
 
 //     await lp.loginMethod(username,password)
 

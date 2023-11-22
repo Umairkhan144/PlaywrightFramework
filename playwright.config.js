@@ -13,12 +13,12 @@ const locators = require('./Utils/locators.json');
  */
 module.exports = defineConfig({
 
-  globalSetup: require.resolve('./global-setup.js'),
+  globalSetup: require.resolve('./tests/global-setup.js'),
   // globalTeardown: require.resolve('./global-teardown.js'),
 
   testDir: './tests',
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
